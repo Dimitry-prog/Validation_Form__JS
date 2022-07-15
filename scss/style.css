@@ -20,7 +20,7 @@
 }
 .sign-up__left {
   width: 138px;
-  height: 480px;
+  height: 481px;
   background-color: #5A61ED;
   display: flex;
 }
@@ -41,7 +41,7 @@
 }
 .sign-up__right {
   width: 528px;
-  height: 480px;
+  height: 481px;
   background-color: #fff;
   background-image: url(../img/SignUp.svg);
   background-repeat: no-repeat;
@@ -51,8 +51,9 @@
   width: 485px;
   height: 409px;
   padding: 39px 22px 33px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  position: relative;
 }
 .sign-up__title {
   margin: 0;
@@ -90,6 +91,9 @@
 }
 .sign-up__account {
   padding-top: 65px;
+  position: absolute;
+  bottom: 45px;
+  left: 20px;
 }
 
 .button {
@@ -109,8 +113,8 @@
 }
 
 .form {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px 13px;
 }
 .form__footer {
@@ -125,6 +129,8 @@
   padding: 7px 26px 7px 25px;
   background-color: #5A61ED;
   justify-self: flex-end;
+  margin-top: 80px;
+  grid-column: 2;
 }
 
 .fieldset {
@@ -143,6 +149,8 @@
 }
 .fieldset--gender {
   border-bottom: none;
+  justify-content: start;
+  column-gap: 19px;
 }
 
 .input {
@@ -152,10 +160,46 @@
   font-size: 14px;
   line-height: 16px;
   background: transparent;
-  padding: 5px 0 6px;
+  padding: 5px 0 7px;
+  margin: 0;
   width: 100%;
 }
 
+.custom-radio {
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+  margin: 0;
+  padding: 0;
+}
+.custom-radio__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+.custom-radio__input:checked + .custom-radio__span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../img/circleRadio.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 6px;
+}
+.custom-radio__input:disabled + .custom-radio__span {
+  border: 1px solid #7C7C7C;
+}
+.custom-radio__input:focus + .custom-radio__span {
+  box-shadow: 0 0 5px #5A61ED;
+}
+.custom-radio__span {
+  width: 12px;
+  height: 12px;
+  border: 0.7px solid #5A61ED;
+  border-radius: 50%;
+}
 .custom-radio__text {
   margin: 0;
   font-family: "WorkSans", sans-serif;
