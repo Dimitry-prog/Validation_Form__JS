@@ -21,11 +21,81 @@
       <h2 class="sign-up__title">New user?</h2>
       <p class="sign-up__subtitle">Use the form below to create your account.</p>
       <form class="form sign-up__form">
-
+        <fieldset>
+          <legend>First Name</legend>
+          <input type="text" class="input sign-up__input input--first-name" placeholder="Alice">
+        </fieldset>
+        <fieldset>
+          <legend>Last Name</legend>
+          <input type="text" class="input sign-up__input input--last-name" placeholder="Miller">
+        </fieldset>
+        <fieldset>
+          <legend>Nationality</legend>
+          <input type="text" class="input sign-up__input input--nationality" placeholder="American">
+          <button class="button sign-up__button button--nationality">
+						<img src="./img/down.svg" alt="down" class="img button__img">
+					</button>
+        </fieldset>
+        <fieldset>
+          <legend>E-mail</legend>
+          <input type="email" class="input sign-up__input input--email" placeholder="alice.miller@yahoo.com">
+          <button class="button">
+						<img src="./img/check.svg" alt="check" class="img button__img">
+					</button>
+        </fieldset>
+        <fieldset>
+          <legend>Date of Birth</legend>
+          <div class="sign-up__birthday">
+            <input type="number" class="input sign-up__input input--birthday" placeholder="21">
+            <button class="button sign-up__button button--day">
+							<img src="./img/down.svg " alt="down " class="img button__img ">
+						</button>
+          </div>
+          <div class="sign-up__month">
+            <input type="text" class="input sign-up__input input--month" placeholder="December">
+            <button class="button sign-up__button button--month">
+							<img src="./img/down.svg " alt="down" class="img button__img ">
+						</button>
+          </div>
+          <div class="sign-up__year">
+            <input type="number" class="input sign-up__input input--year" placeholder="1995">
+            <button class="button sign-up__button button--year">
+							<img src="./img/down.svg " alt="down " class="img button__img ">
+						</button>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Gender</legend>
+          <label for="male">
+						<input type="radio" name="gender" id="male" class="input sign-up__input input--gender custom-radio">
+						<span class="custom-radio__input"></span>
+						<span class="custom-radio__text">Male</span>
+					</label>
+          <label for="female">
+						<input type="radio" name="gender" id="female"class="input sign-up__input input--gender custom-radio">
+						<span class="custom-radio__input"></span>
+						<span class="custom-radio__text">Female</span>
+					</label>
+        </fieldset>
+        <fieldset>
+          <legend>Password</legend>
+          <input type="password" class="input sign-up__input input--first-password">
+        </fieldset>
+        <fieldset>
+          <legend>Confirm Password</legend>
+          <input type="password" class="input sign-up__input input--confirm-password">
+        </fieldset>
+        <div class="form__footer">
+          <div class="have-account">
+            <p class="have-account__text">Have an account? </p>
+            <a href="#" class="have-account__link">Login</a>
+          </div>
+          <button class="button form__submit">Complete Signup</button>
+        </div>
       </form>
     </div>
   </div>
-  <script src="./scripts.js"></script>
+  <script src="./scripts.js "></script>
 </body>
 
 </html>
