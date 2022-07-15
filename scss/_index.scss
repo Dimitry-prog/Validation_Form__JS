@@ -1,0 +1,213 @@
+.root {
+  max-width: $maxWidth;
+  margin: 0 auto;
+  &__sign-up {}
+}
+
+.sign-up {
+  width: 800px;
+  height: 600px;
+  background-color: $backgroundSignUp;
+  margin: 0 auto;
+  &__container {
+    width: 665px;
+    height: 480px;
+    padding: 60px 67px;
+    display: grid;
+    grid-template-columns: 138px 528px;
+  }
+  &__left {
+    width: 138px;
+    height: 480px;
+    background-color: $signUpLeftBackgroundColor;
+    display: flex;
+  }
+  &__text {
+    margin: 0;
+    padding: 12px 0 50px 80px;
+    width: 162px;
+    height: 63px;
+    font-family: $fontFamilyPTSans;
+    font-weight: $fontWeight400;
+    font-style: $fontStyleNormal;
+    font-size: $fontSizeH1;
+    line-height: $lineHeightH1;
+    letter-spacing: $letterSpacingH1;
+    color: $colorWhite;
+    transform: rotate(-90deg);
+    align-self: flex-end;
+  }
+  &__right {
+    width: 528px;
+    height: 480px;
+    background-color: $colorWhite;
+    background-image: url(../img/SignUp.svg);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    &--container {
+      width: 485px;
+      height: 409px;
+      padding: 39px 22px 33px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  &__title {
+    margin: 0;
+    font-size: $fontSizeH2;
+    line-height: $lineHeightH2;
+    letter-spacing: $letterSpacingH2;
+    color: $colorBlack;
+    font-family: $fontFamilyWorkSans;
+    font-weight: $fontWeight600;
+  }
+  &__subtitle {
+    margin: 0;
+    font-family: $fontFamilyWorkSans;
+    color: $colorBlack;
+    font-size: $fontSizeMedium;
+    line-height: $lineHeightMedium;
+    font-weight: $fontWeight200;
+    padding-bottom: 20px;
+  }
+  &__form {}
+  &__input {}
+  &__button {}
+  &__birthday {
+    display: flex;
+    justify-content: space-between;
+    max-width: 56px;
+    margin-right: 10px;
+  }
+  &__month {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+  }
+  &__year {
+    display: flex;
+    justify-content: space-between;
+    max-width: 68px;
+  }
+  &__account {
+    padding-top: 65px;
+  }
+}
+
+.button {
+  background: transparent;
+  border: none;
+  font-family: $fontFamilyPTSans;
+  font-style: $fontStyleNormal;
+  font-weight: $fontWeight400;
+  font-size: $fontSizeButton;
+  line-height: $lineHeightButton;
+  color: $colorWhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  cursor: pointer;
+  &--nationality {}
+  &--day {}
+  &--month {}
+  &--year {}
+  &__img {}
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 13px;
+  &__fieldset {}
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    align-self: flex-end;
+  }
+  &__submit {
+    width: 154px;
+    padding: 7px 26px 7px 25px;
+    background-color: $formSubmitBackgroundColor;
+    justify-self: flex-end;
+  }
+}
+
+.fieldset {
+  margin: 0;
+  padding: 0;
+  font-family: $fontFamilyWorkSans;
+  font-size: $fontSizeUltraSmall;
+  line-height: $lineHeightUltraSmall;
+  color: $colorGray;
+  border: none;
+  width: 235px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $fieldsetBorderColor;
+  &--first-name {}
+  &--last-name {}
+  &--nationality {}
+  &--email {}
+  &--birthday {}
+  &--gender {
+    border-bottom: none;
+  }
+  &--password {}
+  &--confirm-password {}
+}
+
+.input {
+  border: none;
+  outline: none;
+  color: $colorBlack;
+  font-size: $fontSizeMedium;
+  line-height: $lineHeightMedium;
+  background: transparent;
+  padding: 5px 0 6px;
+  width: 100%;
+  &--first-name {}
+  &--last-name {}
+  &--nationality {}
+  &--email {}
+  &--birthday {}
+  &--month {}
+  &--year {}
+  &--gender {}
+  &--password {}
+  &--confirm-password {}
+}
+
+.img {}
+
+.custom-radio {
+  &__input {}
+  &__text {
+    margin: 0;
+    font-family: $fontFamilyWorkSans;
+    color: $colorBlack;
+    font-size: $fontSizeMedium;
+    line-height: $lineHeightMedium;
+  }
+}
+
+.have-account {
+  display: flex;
+  &__text {
+    margin: 0;
+    color: $colorUltraBlack;
+    font-weight: $fontWeight200;
+    font-size: $fontSizeSmall;
+    line-height: $lineHeightSmall;
+    padding-right: 5px;
+  }
+  &__link {
+    font-weight: $fontWeight200;
+    font-size: $fontSizeSmall;
+    line-height: $lineHeightSmall;
+    color: $colorBlue;
+  }
+}

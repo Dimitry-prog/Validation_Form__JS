@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;400;500;600&display=swap");
+.root {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.sign-up {
+  width: 800px;
+  height: 600px;
+  background-color: #F4F5FC;
+  margin: 0 auto;
+}
+.sign-up__container {
+  width: 665px;
+  height: 480px;
+  padding: 60px 67px;
+  display: grid;
+  grid-template-columns: 138px 528px;
+}
+.sign-up__left {
+  width: 138px;
+  height: 480px;
+  background-color: #5A61ED;
+  display: flex;
+}
+.sign-up__text {
+  margin: 0;
+  padding: 12px 0 50px 80px;
+  width: 162px;
+  height: 63px;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 49px;
+  line-height: 63px;
+  letter-spacing: 0.5px;
+  color: #fff;
+  transform: rotate(-90deg);
+  align-self: flex-end;
+}
+.sign-up__right {
+  width: 528px;
+  height: 480px;
+  background-color: #fff;
+  background-image: url(../img/SignUp.svg);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}
+.sign-up__right--container {
+  width: 485px;
+  height: 409px;
+  padding: 39px 22px 33px;
+  display: flex;
+  flex-direction: column;
+}
+.sign-up__title {
+  margin: 0;
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: -0.46px;
+  color: #111;
+  font-family: "WorkSans", sans-serif;
+  font-weight: 600;
+}
+.sign-up__subtitle {
+  margin: 0;
+  font-family: "WorkSans", sans-serif;
+  color: #111;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 200;
+  padding-bottom: 20px;
+}
+.sign-up__birthday {
+  display: flex;
+  justify-content: space-between;
+  max-width: 56px;
+  margin-right: 10px;
+}
+.sign-up__month {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10px;
+}
+.sign-up__year {
+  display: flex;
+  justify-content: space-between;
+  max-width: 68px;
+}
+.sign-up__account {
+  padding-top: 65px;
+}
+
+.button {
+  background: transparent;
+  border: none;
+  font-family: "PT Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  cursor: pointer;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 13px;
+}
+.form__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  align-self: flex-end;
+}
+.form__submit {
+  width: 154px;
+  padding: 7px 26px 7px 25px;
+  background-color: #5A61ED;
+  justify-self: flex-end;
+}
+
+.fieldset {
+  margin: 0;
+  padding: 0;
+  font-family: "WorkSans", sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  color: #7C7C7C;
+  border: none;
+  width: 235px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #F2F2F2;
+}
+.fieldset--gender {
+  border-bottom: none;
+}
+
+.input {
+  border: none;
+  outline: none;
+  color: #111;
+  font-size: 14px;
+  line-height: 16px;
+  background: transparent;
+  padding: 5px 0 6px;
+  width: 100%;
+}
+
+.custom-radio__text {
+  margin: 0;
+  font-family: "WorkSans", sans-serif;
+  color: #111;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.have-account {
+  display: flex;
+}
+.have-account__text {
+  margin: 0;
+  color: #000;
+  font-weight: 200;
+  font-size: 13px;
+  line-height: 15px;
+  padding-right: 5px;
+}
+.have-account__link {
+  font-weight: 200;
+  font-size: 13px;
+  line-height: 15px;
+  color: #5A61ED;
+}
