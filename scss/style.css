@@ -98,7 +98,7 @@
   margin: 0;
   font-family: "WorkSans", sans-serif;
   color: #111;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 16px;
   font-weight: 200;
   padding-bottom: 20px;
@@ -106,23 +106,19 @@
 .sign-up__birthday {
   display: flex;
   justify-content: space-between;
-  max-width: 56px;
-  margin-right: 10px;
 }
 .sign-up__month {
   display: flex;
   justify-content: space-between;
-  margin-right: 10px;
 }
 .sign-up__year {
   display: flex;
   justify-content: space-between;
-  max-width: 68px;
 }
 .sign-up__account {
   padding-top: 65px;
   position: absolute;
-  bottom: 45px;
+  bottom: 43px;
   left: 20px;
 }
 @media screen and (max-width: 610px) {
@@ -183,7 +179,7 @@
   padding: 7px 26px 7px 25px;
   background-color: #5A61ED;
   justify-self: flex-end;
-  margin-top: 80px;
+  margin-top: 81px;
   grid-column: 2;
 }
 @media screen and (max-width: 610px) {
@@ -217,6 +213,13 @@
     width: 100%;
   }
 }
+.fieldset--birthday-container {
+  display: grid;
+  grid-template-columns: 55px 1fr 70px;
+  column-gap: 10px;
+  width: 100%;
+  padding: 4px 0;
+}
 .fieldset--gender {
   border-bottom: none;
   justify-content: start;
@@ -234,10 +237,8 @@
   margin: 0;
   width: 100%;
 }
-@media screen and (max-width: 450px) {
-  .input::placeholder {
-    font-size: 12px;
-  }
+.input::placeholder {
+  font-size: 15px;
 }
 
 .custom-radio {
@@ -245,7 +246,11 @@
   align-items: center;
   column-gap: 6px;
   margin: 0;
-  padding: 5px 0 0;
+}
+@media screen and (max-width: 545px) {
+  .custom-radio {
+    padding-top: 4px;
+  }
 }
 .custom-radio__input {
   position: absolute;
@@ -290,13 +295,28 @@
   margin: 0;
   color: #000;
   font-weight: 200;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 15px;
   padding-right: 5px;
 }
 .have-account__link {
   font-weight: 200;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 15px;
   color: #5A61ED;
+}
+
+.select {
+  width: 100%;
+  border: none;
+  font-family: "WorkSans", sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  appearance: none;
+  background-image: url(../img/down.svg);
+  background-repeat: no-repeat;
+  background-position: right;
 }
