@@ -7,13 +7,11 @@
 
 .sign-up {
   max-width: 800px;
-  max-height: 600px;
   background-color: #F4F5FC;
   margin: 0 auto;
 }
 .sign-up__container {
   max-width: 665px;
-  max-height: 480px;
   padding: 60px 67px;
   display: grid;
   grid-template-columns: .2fr 1fr;
@@ -31,7 +29,6 @@
 }
 .sign-up__left {
   max-width: 138px;
-  max-height: 481px;
   background-color: #5A61ED;
   display: flex;
   align-items: flex-end;
@@ -63,7 +60,6 @@
 }
 .sign-up__right {
   max-width: 528px;
-  height: 481px;
   background-color: #fff;
   background-image: url(../img/SignUp.svg);
   background-repeat: no-repeat;
@@ -72,15 +68,13 @@
 @media screen and (max-width: 610px) {
   .sign-up__right {
     max-width: 100%;
-    height: 426px;
   }
 }
 .sign-up__right--container {
   max-width: 485px;
-  height: 409px;
   padding: 39px 22px 33px;
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: min-content min-content 1fr;
   position: relative;
 }
 @media screen and (max-width: 610px) {
@@ -131,6 +125,18 @@
   bottom: 45px;
   left: 20px;
 }
+@media screen and (max-width: 610px) {
+  .sign-up__account {
+    bottom: 25px;
+  }
+}
+@media screen and (max-width: 390px) {
+  .sign-up__account {
+    position: static;
+    padding-top: 20px;
+    justify-content: center;
+  }
+}
 
 .button {
   background: transparent;
@@ -157,6 +163,12 @@
   .form {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
+@media screen and (max-width: 390px) {
+  .form {
+    justify-content: center;
   }
 }
 .form__footer {
@@ -179,6 +191,11 @@
     margin-top: 60px;
   }
 }
+@media screen and (max-width: 545px) {
+  .form__submit {
+    margin-top: 20px;
+  }
+}
 
 .fieldset {
   margin: 0;
@@ -196,7 +213,7 @@
 }
 @media screen and (max-width: 545px) {
   .fieldset {
-    max-width: 435px;
+    max-width: 453px;
     width: 100%;
   }
 }
@@ -228,7 +245,7 @@
   align-items: center;
   column-gap: 6px;
   margin: 0;
-  padding: 0;
+  padding: 5px 0 0;
 }
 .custom-radio__input {
   position: absolute;
