@@ -134,6 +134,9 @@
   align-items: center;
   padding: 0;
   cursor: pointer;
+  &:hover {
+    opacity: .8;
+  }
   &--nationality {}
   &--day {}
   &--month {}
@@ -194,6 +197,9 @@
     max-width: 453px;
     width: 100%;
   }
+  &--error {
+    border-bottom: 1px solid $fieldsetErrorBorderColor;
+  }
   &--first-name {}
   &--last-name {}
   &--nationality {}
@@ -247,6 +253,7 @@
   align-items: center;
   column-gap: 6px;
   margin: 0;
+  cursor: pointer;
   @media screen and (max-width: 545px) {
     padding-top: 4px;
   }
@@ -318,6 +325,7 @@
   background-image: url(../img/down.svg);
   background-repeat: no-repeat;
   background-position: right;
+  cursor: pointer;
   &__birthday {}
   &__month {}
   &__year {}

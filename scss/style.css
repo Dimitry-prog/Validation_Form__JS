@@ -149,6 +149,9 @@
   padding: 0;
   cursor: pointer;
 }
+.button:hover {
+  opacity: .8;
+}
 
 .form {
   display: grid;
@@ -213,6 +216,9 @@
     width: 100%;
   }
 }
+.fieldset--error {
+  border-bottom: 1px solid #ff5656;
+}
 .fieldset--birthday-container {
   display: grid;
   grid-template-columns: 55px 1fr 70px;
@@ -246,6 +252,7 @@
   align-items: center;
   column-gap: 6px;
   margin: 0;
+  cursor: pointer;
 }
 @media screen and (max-width: 545px) {
   .custom-radio {
@@ -319,4 +326,5 @@
   background-image: url(../img/down.svg);
   background-repeat: no-repeat;
   background-position: right;
+  cursor: pointer;
 }
