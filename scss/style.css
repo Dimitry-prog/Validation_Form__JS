@@ -257,7 +257,7 @@
 }
 
 .input {
-  border: none;
+  border: 1px solid transparent;
   outline: none;
   color: #111;
   font-size: 14px;
