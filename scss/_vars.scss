@@ -1,10 +1,10 @@
 $maxWidth: 1280px;
-$backgroundSignUp: #F4F5FC;
-$formSubmitBackgroundColor: #5A61ED;
-$signUpLeftBackgroundColor:#5A61ED;
-$fontFamilyPTSans: 'PT Sans',
+$backgroundSignUp: #f4f5fc;
+$formSubmitBackgroundColor: #5a61ed;
+$signUpLeftBackgroundColor: #5a61ed;
+$fontFamilyPTSans: "PT Sans",
 sans-serif;
-$fontFamilyWorkSans: 'WorkSans',
+$fontFamilyWorkSans: "WorkSans",
 sans-serif;
 $fontWeight600: 600;
 $fontWeight500: 500;
@@ -14,10 +14,10 @@ $fontWeight100: 100;
 $fontStyleNormal: normal;
 $fontSizeH1: 49px;
 $lineHeightH1: 63px;
-$letterSpacingH1: .5px;
+$letterSpacingH1: 0.5px;
 $fontSizeH2: 22px;
 $lineHeightH2: 26px;
-$letterSpacingH2: -.46px;
+$letterSpacingH2: -0.46px;
 $fontSizeButton: 14px;
 $lineHeightButton: 18px;
 $fontSizeLarge: 15px;
@@ -30,8 +30,11 @@ $fontSizeUltraSmall: 12px;
 $lineHeightUltraSmall: 14px;
 $colorWhite: #fff;
 $colorBlack: #111;
-$colorGray: #7C7C7C;
+$colorGray: #7c7c7c;
 $colorUltraBlack: #000;
-$colorBlue: #5A61ED;
-$fieldsetBorderColor: #F2F2F2;
+$colorBlue: #5a61ed;
+$fieldsetBorderColor: #f2f2f2;
 $fieldsetErrorBorderColor: #ff5656;
+$popUpTransition: 0.5s;
+$popUpShadow: rgba(0, 0, 0, 0.5);
+$popUpCloseOpacity: 0.5;

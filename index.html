@@ -25,18 +25,22 @@
           </p>
           <form class="form sign-up__form" name="sign-up" novalidate>
             <fieldset class="fieldset fieldset--first-name form__fieldset">
-              <legend>First Name</legend>
-              <input type="text" name="first-name" class="input sign-up__input input--first-name" placeholder="Alice" required />
-              <span class="form__input-error first-name-input-error"></span>
+              <legend>First Name
+                <span class="form__input-error first-name-error"></span>
+              </legend>
+              <input type="text" id="first-name" class="input sign-up__input input--first-name" placeholder="Alice" minlength="2" required>
             </fieldset>
             <fieldset class="fieldset fieldset--last-name form__fieldset">
-              <legend>Last Name</legend>
-              <input type="text" name="last-name" class="input sign-up__input input--last-name" placeholder="Miller" required />
-              <span class="form__input-error last-name-input-error"></span>
+              <legend>Last Name
+                <span class="form__input-error last-name-error"></span>
+              </legend>
+              <input type="text" id="last-name" class="input sign-up__input input--last-name" placeholder="Miller" minlength="2" required>
             </fieldset>
             <fieldset class="fieldset fieldset--nationality form__fieldset">
-              <legend>Nationality</legend>
-              <select class="select select__nationality" name="nationality">
+              <legend>Nationality
+                <span class="form__input-error nationality-error"></span>
+              </legend>
+              <select class="select select__nationality" id="nationality">
                 <option value=" " selected disabled hidden>
                   Nationality
                 </option>
@@ -213,21 +217,18 @@
                 <option value="Zambian ">Zambian</option>
                 <option value="Zimbabwean ">Zimbabwean</option>
               </select>
-              <span class="form__input-error nationality-input-error"></span>
             </fieldset>
             <fieldset class="fieldset fieldset--email form__fieldset">
-              <legend>E-mail</legend>
-              <input type="email" name="email" class="input sign-up__input input--email" placeholder="alice.miller@yahoo.com" required />
-              <button type="button" class="button">
-                <img src="./img/check.svg" alt="check" class="img button__img" />
-              </button>
-              <span class="form__input-error email-input-error"></span>
+              <legend>E-mail
+                <span class="form__input-error email-error"></span>
+              </legend>
+              <input type="email" id="email" class="input sign-up__input input--email" placeholder="alice.miller@yahoo.com" minlength="5" required>
             </fieldset>
             <fieldset class="fieldset fieldset--birthday form__fieldset">
               <legend>Date of Birth</legend>
               <div class="fieldset--birthday-container">
                 <div class="sign-up__birthday">
-                  <select class="select select__birthday" name="birthday">
+                  <select class="select select__birthday" id="birthday">
                     <option value=" " selected disabled hidden>day</option>
                     <option value="1 ">1</option>
                     <option value="2 ">2</option>
@@ -263,7 +264,7 @@
                   </select>
                 </div>
                 <div class="sign-up__month">
-                  <select class="select select__month" name="month">
+                  <select class="select select__month" id="month">
                     <option value=" " selected disabled hidden>month</option>
                     <option value="January ">January</option>
                     <option value="February ">February</option>
@@ -280,7 +281,7 @@
                   </select>
                 </div>
                 <div class="sign-up__year">
-                  <select class="select select__year" name="year">
+                  <select class="select select__year" id="year">
                     <option value=" " selected disabled hidden>year</option>
                     <option value="2022 ">2022</option>
                     <option value="2021 ">2021</option>
@@ -405,14 +406,16 @@
               </label>
             </fieldset>
             <fieldset class="fieldset fieldset--password form__fieldset">
-              <legend>Password</legend>
-              <input type="password" name="password" class="input sign-up__input input--password" required />
-              <span class="form__input-error password-input-error"></span>
+              <legend>Password
+                <span class="form__input-error password-error"></span>
+              </legend>
+              <input type="password" id="password" class="input sign-up__input input--password" minlength="8" required>
             </fieldset>
             <fieldset class="fieldset fieldset--confirm-password form__fieldset">
-              <legend>Confirm Password</legend>
-              <input type="password" name="confirm-password" class="input sign-up__input input--confirm-password" required />
-              <span class="form__input-error confirm-password-input-error"></span>
+              <legend>Confirm Password
+                <span class="form__input-error confirm-password-error"></span>
+              </legend>
+              <input type="password" id="confirm-password" class="input sign-up__input input--confirm-password" minlength="8" required>
             </fieldset>
             <button type="submit" class="button form__submit">
               Complete Signup
@@ -426,7 +429,17 @@
       </div>
     </div>
   </div>
-  <script src="./scripts/vendor/scrollreveal.min.js"></script>
+  <div class="pop-up">
+    <div class="pop-up__overlay">
+      <button class="button pop-up__close" type="button" aria-label="ClosePopUp">
+      </button>
+      <div class="pop-up__header">
+        <h2 class="pop-up__title">Thank You!</h2>
+        <p class="pop-up__subtitle">you registered!</p>
+      </div>
+    </div>
+  </div>
+  <!--   <script src="./scripts/vendor/scrollreveal.min.js"></script> -->
   <script src="./scripts/index.js "></script>
 </body>
 

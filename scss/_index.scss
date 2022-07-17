@@ -1,6 +1,9 @@
 .root {
   max-width: $maxWidth;
   margin: 0 auto;
+  &--hidden {
+    overflow: hidden;
+  }
   &__sign-up {}
 }
 
@@ -12,13 +15,16 @@
     max-width: 665px;
     padding: 60px 67px;
     display: grid;
-    grid-template-columns: .2fr 1fr;
+    grid-template-columns: 0.2fr 1fr;
     @media screen and (max-width: 680px) {
       padding: 30px;
     }
     @media screen and (max-width: 610px) {
       grid-template-columns: 1fr;
       grid-template-rows: min-content max-content;
+    }
+    @media screen and (max-width: 430px) {
+      padding: 10px;
     }
   }
   &__left {
@@ -46,6 +52,10 @@
       transform: rotate(0deg);
       font-size: $fontSizeH2;
       line-height: $lineHeightH2;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 270px;
     }
   }
   &__right {
@@ -79,6 +89,17 @@
     color: $colorBlack;
     font-family: $fontFamilyWorkSans;
     font-weight: $fontWeight600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 500px;
+    @media screen and (max-width: 780px) {
+      max-width: 400px;
+    }
+    @media screen and (max-width: 560px) {
+      max-width: 270px;
+      white-space: normal;
+    }
   }
   &__subtitle {
     margin: 0;
@@ -88,6 +109,17 @@
     line-height: $lineHeightMedium;
     font-weight: $fontWeight200;
     padding-bottom: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 500px;
+    @media screen and (max-width: 780px) {
+      max-width: 400px;
+    }
+    @media screen and (max-width: 560px) {
+      max-width: 270px;
+      white-space: normal;
+    }
   }
   &__form {}
   &__input {}
@@ -135,7 +167,16 @@
   padding: 0;
   cursor: pointer;
   &:hover {
-    opacity: .8;
+    opacity: 0.8;
+  }
+  &--inactive {
+    color: #b8b8b8;
+    background: #ededed;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
   &--nationality {}
   &--day {}
@@ -178,6 +219,41 @@
       margin-top: 20px;
     }
   }
+  &__input-error {
+    font-size: $fontSizeUltraSmall;
+    color: $fieldsetErrorBorderColor;
+    opacity: 0;
+    transition: 0.3s;
+  }
+  &__input-error-active {
+    opacity: 1;
+  }
+}
+
+.input {
+  border: none;
+  outline: none;
+  color: $colorBlack;
+  font-size: $fontSizeMedium;
+  line-height: $lineHeightMedium;
+  background: transparent;
+  padding: 5px 0 7px;
+  margin: 0;
+  width: 100%;
+  position: relative;
+  &::placeholder {
+    font-size: $fontSizeLarge;
+  }
+  &--first-name {}
+  &--last-name {}
+  &--nationality {}
+  &--email {}
+  &--birthday {}
+  &--month {}
+  &--year {}
+  &--gender {}
+  &--password {}
+  &--confirm-password {}
 }
 
 .fieldset {
@@ -193,6 +269,7 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid $fieldsetBorderColor;
+  position: relative;
   @media screen and (max-width: 545px) {
     max-width: 453px;
     width: 100%;
@@ -217,31 +294,6 @@
     justify-content: start;
     column-gap: 19px;
   }
-  &--password {}
-  &--confirm-password {}
-}
-
-.input {
-  border: none;
-  outline: none;
-  color: $colorBlack;
-  font-size: $fontSizeMedium;
-  line-height: $lineHeightMedium;
-  background: transparent;
-  padding: 5px 0 7px;
-  margin: 0;
-  width: 100%;
-  &::placeholder {
-    font-size: $fontSizeLarge;
-  }
-  &--first-name {}
-  &--last-name {}
-  &--nationality {}
-  &--email {}
-  &--birthday {}
-  &--month {}
-  &--year {}
-  &--gender {}
   &--password {}
   &--confirm-password {}
 }
@@ -329,4 +381,63 @@
   &__birthday {}
   &__month {}
   &__year {}
+}
+
+.pop-up {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $popUpShadow;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: $popUpTransition;
+  &--opened {
+    visibility: visible;
+    opacity: 1;
+  }
+  &__overlay {
+    max-width: 120px;
+    width: 100%;
+    position: relative;
+    background-color: $colorWhite;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  &__header {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  &__title {
+    margin: 0;
+    font-family: $fontFamilyPTSans;
+    font-size: $fontSizeH2;
+    line-height: $lineHeightH2;
+  }
+  &__subtitle {
+    margin: 0;
+    font-size: $fontSizeMedium;
+    line-height: $lineHeightMedium;
+  }
+  &__close {
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    background-image: url(../img/Close.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    border: none;
+    &:hover {
+      cursor: pointer;
+      opacity: $popUpCloseOpacity;
+    }
+  }
 }
