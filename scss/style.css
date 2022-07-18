@@ -80,15 +80,13 @@ svg {
   max-width: 528px;
   min-height: 480px;
   background-color: #fff;
-  background-image: url(../img/SignUp.svg);
-  background-repeat: no-repeat;
-  background-position: right bottom;
   position: relative;
   overflow: hidden;
 }
 @media screen and (max-width: 610px) {
   .sign-up__right {
     max-width: 100%;
+    min-height: 100%;
   }
 }
 .sign-up__right--container {
@@ -400,12 +398,14 @@ svg {
   font-size: 15px;
   line-height: 15px;
   padding-right: 5px;
+  z-index: 1;
 }
 .have-account__link {
   font-weight: 200;
   font-size: 14px;
   line-height: 15px;
   color: #5a61ed;
+  z-index: 1;
 }
 
 .select {

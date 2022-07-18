@@ -62,13 +62,11 @@
     max-width: 528px;
     min-height: 480px;
     background-color: $colorWhite;
-    background-image: url(../img/SignUp.svg);
-    background-repeat: no-repeat;
-    background-position: right bottom;
     position: relative;
     overflow: hidden;
     @media screen and (max-width: 610px) {
       max-width: 100%;
+      min-height: 100%;
     }
     &--container {
       max-width: 485px;
@@ -383,12 +381,14 @@
     font-size: $fontSizeLarge;
     line-height: $lineHeightSmall;
     padding-right: 5px;
+    z-index: 1;
   }
   &__link {
     font-weight: $fontWeight200;
     font-size: $fontSizeMedium;
     line-height: $lineHeightSmall;
     color: $colorBlue;
+    z-index: 1;
   }
 }
 
