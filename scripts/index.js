@@ -13,7 +13,7 @@ const confirmPasswordInput = signUpForm.querySelector('.input--confirm-password'
 const popUp = document.querySelector('.pop-up');
 const rootElement = document.querySelector('.root');
 const popUpClose = document.querySelector('.pop-up__close');
-
+const vivusPiture = document.querySelector('.sign-up__vivus');
 
 const clearForm = (formName) => {
   formName.reset();
@@ -35,13 +35,12 @@ signUpForm.addEventListener('submit', function (event) {
     togglePopUp();
     sendForm();
     submitButton.classList.remove('button__shake');
+    vivusPiture.classList.add('sign-up__vivus--hidden');
   } else {
     submitButton.classList.add('button__shake');
   }
 
 });
-
-
 
 
 const togglePopUp = () => {
@@ -92,11 +91,11 @@ const isValidPassword = (formElement, inputSelector, errorSelector) => {
 
   if (isPasswordIncludesNumber(formElement, inputSelector) && isPasswordIncludesUpperLetter(formElement, inputSelector) && isPasswordIncludesLowerLetter(formElement, inputSelector)) {
     errorMessage.textContent = '';
-    inputElement.classList.remove('input--error');
+    inputElement.closest('.fieldset').classList.remove('fieldset--error');
     return true;
   } else {
     errorMessage.textContent = `${inputElement.validationMessage} You password have to includes: upper, lower letter and number`;
-    inputElement.classList.add('input--error');
+    inputElement.closest('.fieldset').classList.add('fieldset--error');
     return false;
   }
 }
@@ -139,9 +138,9 @@ confirmPasswordInput.addEventListener('input', function () {
 const errorMessage = (inputElement) => {
   const errorElement = signUpForm.querySelector(`.${inputElement.id}-error`);
   errorElement.textContent = inputElement.validationMessage;
-  inputElement.classList.add('input--error');
+  inputElement.closest('.fieldset').classList.add('fieldset--error');
   if (inputElement.validity.valid) {
-    inputElement.classList.remove('input--error');
+    inputElement.closest('.fieldset').classList.remove('fieldset--error');
   }
 }
 

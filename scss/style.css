@@ -491,3 +491,7 @@ svg {
   bottom: -7px;
   z-index: 0;
 }
+.sign-up__vivus--hidden {
+  visibility: hidden;
+  opacity: 0;
+}

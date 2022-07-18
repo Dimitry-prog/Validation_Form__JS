@@ -477,4 +477,8 @@
   right: -67px;
   bottom: -7px;
   z-index: 0;
+  &--hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
 }
