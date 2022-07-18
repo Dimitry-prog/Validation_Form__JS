@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;400;500;600&display=swap");
+svg {
+  fill: none;
+  stroke: #5a61ed;
+  stroke-width: 1;
+}
+
 .root {
   max-width: 1280px;
   margin: 0 auto;
@@ -78,6 +84,7 @@
   background-repeat: no-repeat;
   background-position: right bottom;
   position: relative;
+  overflow: hidden;
 }
 @media screen and (max-width: 610px) {
   .sign-up__right {
@@ -223,6 +230,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 14px 13px;
+  z-index: 1;
 }
 @media screen and (max-width: 545px) {
   .form {
@@ -473,4 +481,13 @@
 .pop-up__close:hover {
   cursor: pointer;
   opacity: 0.5;
+}
+
+.sign-up__vivus {
+  width: 438px;
+  height: 363px;
+  position: absolute;
+  right: -67px;
+  bottom: -7px;
+  z-index: 0;
 }

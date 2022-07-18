@@ -66,6 +66,7 @@
     background-repeat: no-repeat;
     background-position: right bottom;
     position: relative;
+    overflow: hidden;
     @media screen and (max-width: 610px) {
       max-width: 100%;
     }
@@ -205,6 +206,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 14px 13px;
+  z-index: 1;
   @media screen and (max-width: 545px) {
     display: flex;
     flex-wrap: wrap;
@@ -466,4 +468,13 @@
       opacity: $popUpCloseOpacity;
     }
   }
+}
+
+.sign-up__vivus {
+  width: 438px;
+  height: 363px;
+  position: absolute;
+  right: -67px;
+  bottom: -7px;
+  z-index: 0;
 }

@@ -161,22 +161,17 @@ firstNameInut.addEventListener('input', function () {
 
 
 
+const vivus = new Vivus('vivus', { type: 'scenario-sync', duration: 1000, file: './img/SignUp.svg', start: 'autostart', })
 
-/* const vivus = new Vivus('sign-up__right', {
-  deration: 200,
-  file: '../img/SignUp.svg'
-});
- */
-
-/* const smoothReveal = ScrollReveal({
-  origin: 'top',
+const smoothReveal = ScrollReveal({
+  origin: 'bottom',
   distance: '60px',
   duration: 3500,
   delay: 100,
 
 })
 
-smoothReveal.reveal(`.fieldset`, { interval: 500 }) */
+smoothReveal.reveal(`.fieldset`, { interval: 500 })
 
 
 
@@ -192,3 +187,4 @@ const sendForm = () => {
   xhttp.open("GET", "ajax_info.txt", true);
   xhttp.send();
 }
+
