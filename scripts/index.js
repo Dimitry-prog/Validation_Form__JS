@@ -119,7 +119,6 @@ const isValidConfirmPasswords = () => {
 
 passwordInput.addEventListener('input', function () {
   isValidPassword(signUpForm, 'input--password', 'pas-error');
-
 });
 
 confirmPasswordInput.addEventListener('input', function () {
