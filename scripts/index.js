@@ -65,7 +65,7 @@ const isPasswordIncludesNumber = (formElement, inputSelector) => {
   }
   return false;
 }
-console.log(isPasswordIncludesNumber(signUpForm, 'input--password'));
+
 
 
 
@@ -119,19 +119,12 @@ const isValidConfirmPasswords = () => {
 
 passwordInput.addEventListener('input', function () {
   isValidPassword(signUpForm, 'input--password', 'pas-error');
-  console.log('valid default', passwordInput.validity.valid);
-  console.log('includes num:', isPasswordIncludesNumber(signUpForm, 'input--password'));
-  console.log('valid pass: ', isValidPassword(signUpForm, 'input--password', 'pas-error'));
-  console.log('valid form: ', isValidForm());
+
 });
 
 confirmPasswordInput.addEventListener('input', function () {
   isValidPassword(signUpForm, 'input--confirm-password', 'conf-pas-error');
   isMatchPasswords(passwordInput, confirmPasswordInput, 'conf-pas-error');
-  console.log('match: ', isMatchPasswords(passwordInput, confirmPasswordInput, 'conf-pas-error'));
-  console.log(passwordInput.value)
-  console.log(confirmPasswordInput.value);
-  console.log('confirm valid: ', isValidConfirmPasswords());
 });
 
 
