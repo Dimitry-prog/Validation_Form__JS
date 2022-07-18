@@ -14,6 +14,7 @@ const popUp = document.querySelector('.pop-up');
 const rootElement = document.querySelector('.root');
 const popUpClose = document.querySelector('.pop-up__close');
 const vivusPiture = document.querySelector('.sign-up__vivus');
+const doneMarkImg = document.querySelector('.img__doneMark');
 
 const clearForm = (formName) => {
   formName.reset();
@@ -92,10 +93,12 @@ const isValidPassword = (formElement, inputSelector, errorSelector) => {
   if (isPasswordIncludesNumber(formElement, inputSelector) && isPasswordIncludesUpperLetter(formElement, inputSelector) && isPasswordIncludesLowerLetter(formElement, inputSelector)) {
     errorMessage.textContent = '';
     inputElement.closest('.fieldset').classList.remove('fieldset--error');
+    showDoneMark(inputElement);
     return true;
   } else {
     errorMessage.textContent = `${inputElement.validationMessage} You password have to includes: upper, lower letter and number`;
     inputElement.closest('.fieldset').classList.add('fieldset--error');
+    hideDoneMark(inputElement);
     return false;
   }
 }
@@ -105,9 +108,13 @@ const isMatchPasswords = (pas1, pas2, errorSelector) => {
 
   if (pas1.value !== pas2.value) {
     errorMessage.textContent = `Passwords do not match`;
+    hideDoneMark(confirmPasswordInput);
     return false;
   }
-  else return true;
+  else {
+    showDoneMark(confirmPasswordInput);
+    return true;
+  }
 
 }
 
@@ -119,6 +126,7 @@ const isValidConfirmPasswords = () => {
 
 passwordInput.addEventListener('input', function () {
   isValidPassword(signUpForm, 'input--password', 'pas-error');
+
 });
 
 confirmPasswordInput.addEventListener('input', function () {
@@ -129,10 +137,14 @@ confirmPasswordInput.addEventListener('input', function () {
 
 const errorMessage = (inputElement) => {
   const errorElement = signUpForm.querySelector(`.${inputElement.id}-error`);
-  errorElement.textContent = inputElement.validationMessage;
-  inputElement.closest('.fieldset').classList.add('fieldset--error');
-  if (inputElement.validity.valid) {
+  if (!inputElement.validity.valid) {
+    errorElement.textContent = inputElement.validationMessage;
+    inputElement.closest('.fieldset').classList.add('fieldset--error');
+    hideDoneMark(inputElement);
+  } else {
+    errorElement.textContent = '';
     inputElement.closest('.fieldset').classList.remove('fieldset--error');
+    showDoneMark(inputElement);
   }
 }
 
@@ -148,9 +160,15 @@ firstNameInut.addEventListener('input', function () {
   errorMessage(firstNameInut);
 });
 
+const showDoneMark = (inputElement) => {
+  const imgElement = document.querySelector(`.${inputElement.id}-done`);
+  imgElement.classList.add('img__doneMark--visibly');
+}
 
-
-
+const hideDoneMark = (inputElement) => {
+  const imgElement = document.querySelector(`.${inputElement.id}-done`);
+  imgElement.classList.remove('img__doneMark--visibly');
+}
 
 const vivus = new Vivus('vivus', { type: 'scenario-sync', duration: 1000, file: './img/SignUp.svg', start: 'autostart', })
 

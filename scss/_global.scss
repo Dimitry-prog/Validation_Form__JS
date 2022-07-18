@@ -3,3 +3,15 @@ svg {
   stroke: $colorBlue;
   stroke-width: 1;
 }
+
+.img {
+  &__doneMark {
+    opacity: 0;
+    visibility: hidden;
+    transition: $transition05;
+    &--visibly {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

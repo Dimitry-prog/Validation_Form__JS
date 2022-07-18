@@ -6,6 +6,16 @@ svg {
   stroke-width: 1;
 }
 
+.img__doneMark {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+}
+.img__doneMark--visibly {
+  opacity: 1;
+  visibility: visible;
+}
+
 .root {
   max-width: 1280px;
   margin: 0 auto;

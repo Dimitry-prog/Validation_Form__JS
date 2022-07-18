@@ -424,7 +424,7 @@
   align-items: center;
   visibility: hidden;
   opacity: 0;
-  transition: $popUpTransition;
+  transition: $transition05;
   &--opened {
     visibility: visible;
     opacity: 1;
