@@ -183,7 +183,7 @@ const sendForm = () => {
       document.querySelector('.sign-up__right--container').innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", "ajax_info.txt", true);
+  xhttp.open("GET", "ajax.txt", true);
   xhttp.send();
 }
 
