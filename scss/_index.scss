@@ -60,10 +60,12 @@
   }
   &__right {
     max-width: 528px;
+    min-height: 480px;
     background-color: $colorWhite;
     background-image: url(../img/SignUp.svg);
     background-repeat: no-repeat;
     background-position: right bottom;
+    position: relative;
     @media screen and (max-width: 610px) {
       max-width: 100%;
     }
@@ -72,7 +74,6 @@
       padding: 39px 22px 33px;
       display: grid;
       grid-template-rows: min-content min-content 1fr;
-      position: relative;
       @media screen and (max-width: 610px) {
         padding: 15px;
         max-width: 100%;
@@ -146,7 +147,7 @@
     }
     @media screen and (max-width: 390px) {
       position: static;
-      padding-top: 20px;
+      padding: 0 0 15px;
       justify-content: center;
     }
   }
@@ -183,12 +184,27 @@
   &--month {}
   &--year {}
   &__img {}
+  &__shake {
+    animation: shake 0.5s linear 2;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(3px, 0);
+  }
+  50% {
+    transform: translate(-3px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
 .form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px 13px;
+  gap: 14px 13px;
   @media screen and (max-width: 545px) {
     display: flex;
     flex-wrap: wrap;
@@ -210,7 +226,7 @@
     padding: 7px 26px 7px 25px;
     background-color: $formSubmitBackgroundColor;
     justify-self: flex-end;
-    margin-top: 81px;
+    margin-top: 84px;
     grid-column: 2;
     @media screen and (max-width: 610px) {
       margin-top: 60px;
@@ -222,11 +238,18 @@
   &__input-error {
     font-size: $fontSizeUltraSmall;
     color: $fieldsetErrorBorderColor;
-    opacity: 0;
     transition: 0.3s;
   }
   &__input-error-active {
     opacity: 1;
+  }
+  &__password-wrong {
+    font-size: $fontSizeUltraSmall;
+    color: $fieldsetErrorBorderColor;
+  }
+  &__send {
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -243,6 +266,9 @@
   position: relative;
   &::placeholder {
     font-size: $fontSizeLarge;
+  }
+  &--error {
+    border-bottom: 1px solid $fieldsetErrorBorderColor;
   }
   &--first-name {}
   &--last-name {}
@@ -427,13 +453,13 @@
   }
   &__close {
     position: absolute;
-    right: -40px;
-    top: -40px;
+    right: -20px;
+    top: -20px;
     background-image: url(../img/Close.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    width: 30px;
-    height: 30px;
+    width: 15px;
+    height: 15px;
     border: none;
     &:hover {
       cursor: pointer;

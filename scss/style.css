@@ -72,10 +72,12 @@
 }
 .sign-up__right {
   max-width: 528px;
+  min-height: 480px;
   background-color: #fff;
   background-image: url(../img/SignUp.svg);
   background-repeat: no-repeat;
   background-position: right bottom;
+  position: relative;
 }
 @media screen and (max-width: 610px) {
   .sign-up__right {
@@ -87,7 +89,6 @@
   padding: 39px 22px 33px;
   display: grid;
   grid-template-rows: min-content min-content 1fr;
-  position: relative;
 }
 @media screen and (max-width: 610px) {
   .sign-up__right--container {
@@ -171,7 +172,7 @@
 @media screen and (max-width: 390px) {
   .sign-up__account {
     position: static;
-    padding-top: 20px;
+    padding: 0 0 15px;
     justify-content: center;
   }
 }
@@ -203,11 +204,25 @@
   -ms-user-select: none;
   user-select: none;
 }
+.button__shake {
+  animation: shake 0.5s linear 2;
+}
 
+@keyframes shake {
+  0% {
+    transform: translate(3px, 0);
+  }
+  50% {
+    transform: translate(-3px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
 .form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px 13px;
+  gap: 14px 13px;
 }
 @media screen and (max-width: 545px) {
   .form {
@@ -233,7 +248,7 @@
   padding: 7px 26px 7px 25px;
   background-color: #5a61ed;
   justify-self: flex-end;
-  margin-top: 81px;
+  margin-top: 84px;
   grid-column: 2;
 }
 @media screen and (max-width: 610px) {
@@ -249,11 +264,18 @@
 .form__input-error {
   font-size: 12px;
   color: #ff5656;
-  opacity: 0;
   transition: 0.3s;
 }
 .form__input-error-active {
   opacity: 1;
+}
+.form__password-wrong {
+  font-size: 12px;
+  color: #ff5656;
+}
+.form__send {
+  display: flex;
+  align-items: center;
 }
 
 .input {
@@ -270,6 +292,9 @@
 }
 .input::placeholder {
   font-size: 15px;
+}
+.input--error {
+  border-bottom: 1px solid #ff5656;
 }
 
 .fieldset {
@@ -436,13 +461,13 @@
 }
 .pop-up__close {
   position: absolute;
-  right: -40px;
-  top: -40px;
+  right: -20px;
+  top: -20px;
   background-image: url(../img/Close.svg);
   background-repeat: no-repeat;
   background-size: cover;
-  width: 30px;
-  height: 30px;
+  width: 15px;
+  height: 15px;
   border: none;
 }
 .pop-up__close:hover {

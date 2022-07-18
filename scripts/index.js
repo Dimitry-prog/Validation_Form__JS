@@ -8,115 +8,39 @@ const lastNameInput = signUpForm.querySelector('.input--last-name');
 const emailInput = signUpForm.querySelector('.input--email');
 
 const passwordInput = signUpForm.querySelector('.input--password');
-const confirmPasswordInput = signUpForm.querySelector('.confirm-passwor');
+const confirmPasswordInput = signUpForm.querySelector('.input--confirm-password');
 
 const popUp = document.querySelector('.pop-up');
 const rootElement = document.querySelector('.root');
 const popUpClose = document.querySelector('.pop-up__close');
 
 
-const isPasswordIncludesNumber = (formElement, inputName, inputSelector) => {
-  inputName = formElement.querySelector(`.${inputSelector}`);
-  let arr = inputName.value.split('');
-  for (let item of arr) {
-    if (!isNaN(item)) {
-      return true;
-    }
-  }
-}
-
-const isPasswordIncludesUpperLetter = (formElement, inputName, inputSelector) => {
-  inputName = formElement.querySelector(`.${inputSelector}`);
-  let res = inputName.value.toLowerCase();
-  if (inputName.value !== res) {
-    return true;
-  }
-}
-
-const isPasswordIncludesLowerLetter = (formElement, inputName, inputSelector) => {
-  inputName = formElement.querySelector(`.${inputSelector}`);
-  let res = inputName.value.toUpperCase();
-  if (inputName.value !== res) {
-    return true;
-  }
-}
-
-const checkPassword = (formElement, inputName, inputSelector) => {
-  if (isPasswordIncludesNumber(formElement, inputName, inputSelector) && isPasswordIncludesUpperLetter(formElement, inputName, inputSelector) && isPasswordIncludesLowerLetter(formElement, inputName, inputSelector)) {
-    return true;
-  }
-}
-
-const showInputError = (formElement, inputElement, errorMessage) => {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add('fieldset--error');
-  errorElement.textContent = errorMessage;
-  errorElement.classList.add('form__input-error-active');
-  if (!checkPassword(signUpForm, 'pass', 'input--password')) {
-    errorElement.textContent = errorElement.textContent + ' ' + ' You password have to includes: upper, lower letter and number'
-  }
-};
-
-const hideInputError = (formElement, inputElement) => {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove('fieldset--error');
-  errorElement.classList.remove('form__input-error-active');
-  errorElement.textContent = '';
-};
-
-const hasInvalidInput = (inputList) => {
-  return inputList.some((inputElement) => {
-    return !inputElement.validity.valid;
-  });
-}
-
-const toggleButtonState = (inputList, buttonElement) => {
-  if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add('button--inactive');
-  } else {
-    buttonElement.classList.remove('button--inactive');
-  }
-}
-
-const checkInputValidity = (formElement, inputElement) => {
-  if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
-  } else {
-    hideInputError(formElement, inputElement);
-  }
-};
-
-const setEventListeners = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll('.sign-up__input'));
-  const buttonElement = formElement.querySelector('.form__submit');
-  toggleButtonState(inputList, buttonElement);
-  inputList.forEach((inputElement) => {
-
-    inputElement.addEventListener('input', function () {
-      checkInputValidity(formElement, inputElement);
-      toggleButtonState(inputList, buttonElement);
-
-    });
-  });
-};
-
 const clearForm = (formName) => {
   formName.reset();
 }
 
+const isValidForm = () => {
+  if (firstNameInut.value !== '' && lastNameInput.value !== '' && emailInput.value !== '' && isValidConfirmPasswords()) {
+    return true;
+  } else return false;
+}
 
-const enableValidation = () => {
-  const signUpForm = document.querySelector('.sign-up__form');
-  signUpForm.addEventListener('submit', function (event) {
-    event.preventDefault();
+
+
+
+signUpForm.addEventListener('submit', function (event) {
+  event.preventDefault();
+  if (isValidForm()) {
     clearForm(signUpForm);
     togglePopUp();
+    sendForm();
+    submitButton.classList.remove('button__shake');
+  } else {
+    submitButton.classList.add('button__shake');
+  }
 
-  });
-  setEventListeners(signUpForm);
-};
+});
 
-enableValidation();
 
 
 
@@ -132,6 +56,118 @@ popUp.addEventListener('click', function (event) {
   }
 })
 
+
+const isPasswordIncludesNumber = (formElement, inputSelector) => {
+  let arr = formElement.querySelector(`.${inputSelector}`).value.split('');
+  for (let item of arr) {
+    if (!isNaN(item)) {
+      return true;
+    }
+  }
+  return false;
+}
+console.log(isPasswordIncludesNumber(signUpForm, 'input--password'));
+
+
+
+const isPasswordIncludesUpperLetter = (formElement, inputSelector) => {
+  let res = formElement.querySelector(`.${inputSelector}`).value.toLowerCase();
+  if (formElement.querySelector(`.${inputSelector}`).value !== res) {
+    return true;
+  }
+  return false;
+}
+
+const isPasswordIncludesLowerLetter = (formElement, inputSelector) => {
+  let res = formElement.querySelector(`.${inputSelector}`).value.toUpperCase();
+  if (formElement.querySelector(`.${inputSelector}`).value !== res) {
+    return true;
+  }
+  return false;
+}
+
+const isValidPassword = (formElement, inputSelector, errorSelector) => {
+  const inputElement = formElement.querySelector(`.${inputSelector}`);
+  const errorMessage = formElement.querySelector(`.${errorSelector}`);
+
+  if (isPasswordIncludesNumber(formElement, inputSelector) && isPasswordIncludesUpperLetter(formElement, inputSelector) && isPasswordIncludesLowerLetter(formElement, inputSelector)) {
+    errorMessage.textContent = '';
+    inputElement.classList.remove('input--error');
+    return true;
+  } else {
+    errorMessage.textContent = `${inputElement.validationMessage} You password have to includes: upper, lower letter and number`;
+    inputElement.classList.add('input--error');
+    return false;
+  }
+}
+
+const isMatchPasswords = (pas1, pas2, errorSelector) => {
+  const errorMessage = signUpForm.querySelector(`.${errorSelector}`);
+
+  if (pas1.value !== pas2.value) {
+    errorMessage.textContent = `Passwords do not match`;
+    return false;
+  }
+  else return true;
+
+}
+
+const isValidConfirmPasswords = () => {
+  if (isValidPassword(signUpForm, 'input--password', 'pas-error') && isValidPassword(signUpForm, 'input--confirm-password', 'conf-pas-error') && isMatchPasswords(passwordInput, confirmPasswordInput, 'conf-pas-error')) return true;
+  return false;
+}
+
+
+passwordInput.addEventListener('input', function () {
+  isValidPassword(signUpForm, 'input--password', 'pas-error');
+  console.log('valid default', passwordInput.validity.valid);
+  console.log('includes num:', isPasswordIncludesNumber(signUpForm, 'input--password'));
+  console.log('valid pass: ', isValidPassword(signUpForm, 'input--password', 'pas-error'));
+  console.log('valid form: ', isValidForm());
+});
+
+confirmPasswordInput.addEventListener('input', function () {
+  isValidPassword(signUpForm, 'input--confirm-password', 'conf-pas-error');
+  isMatchPasswords(passwordInput, confirmPasswordInput, 'conf-pas-error');
+  console.log('match: ', isMatchPasswords(passwordInput, confirmPasswordInput, 'conf-pas-error'));
+  console.log(passwordInput.value)
+  console.log(confirmPasswordInput.value);
+  console.log('confirm valid: ', isValidConfirmPasswords());
+});
+
+
+const errorMessage = (inputElement) => {
+  const errorElement = signUpForm.querySelector(`.${inputElement.id}-error`);
+  errorElement.textContent = inputElement.validationMessage;
+  inputElement.classList.add('input--error');
+  if (inputElement.validity.valid) {
+    inputElement.classList.remove('input--error');
+  }
+}
+
+emailInput.addEventListener('input', function () {
+  errorMessage(emailInput);
+});
+
+lastNameInput.addEventListener('input', function () {
+  errorMessage(lastNameInput);
+});
+
+firstNameInut.addEventListener('input', function () {
+  errorMessage(firstNameInut);
+});
+
+
+
+
+
+
+/* const vivus = new Vivus('sign-up__right', {
+  deration: 200,
+  file: '../img/SignUp.svg'
+});
+ */
+
 /* const smoothReveal = ScrollReveal({
   origin: 'top',
   distance: '60px',
@@ -141,3 +177,18 @@ popUp.addEventListener('click', function (event) {
 })
 
 smoothReveal.reveal(`.fieldset`, { interval: 500 }) */
+
+
+
+
+const sendForm = () => {
+  let xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      document.querySelector('.sign-up__right').classList.add('form__send');
+      document.querySelector('.sign-up__right--container').innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "ajax_info.txt", true);
+  xhttp.send();
+}

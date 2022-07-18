@@ -1,0 +1,4 @@
+      <div class="pop-up__header">
+        <h2 class="pop-up__title">Thank You!</h2>
+        <p class="pop-up__subtitle">you registered!</p>
+      </div>
