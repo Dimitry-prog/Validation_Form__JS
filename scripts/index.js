@@ -16,12 +16,56 @@ const popUpClose = document.querySelector('.pop-up__close');
 const vivusPiture = document.querySelector('.sign-up__vivus');
 const doneMarkImg = document.querySelector('.img__doneMark');
 
+const nationalitySelect = signUpForm.querySelector('.select__nationality');
+const birthDaySelect = signUpForm.querySelector('.select__birthday');
+const birthMonthSelect = signUpForm.querySelector('.select__month');
+const birthYearSelect = signUpForm.querySelector('.select__year');
+
+
+
+nationalitySelect.addEventListener('click', function () {
+  errorMessage(nationalitySelect);
+});
+
+birthDaySelect.addEventListener('click', function () {
+  errorMessage(birthDaySelect);
+});
+
+birthMonthSelect.addEventListener('click', function () {
+  errorMessage(birthMonthSelect);
+});
+
+birthYearSelect.addEventListener('click', function () {
+  errorMessage(birthYearSelect);
+});
+
+console.log('form: ', document.forms.signup);
+console.log('elem: ', document.forms.signup.elements);
+console.log('by name: ', document.forms.signup.firtName);
+console.log('firt name valid: ', document.forms.signup.firtName.validity.valid);
+
+console.log('by name nationality: ', document.forms.signup.nationality);
+console.log('nationality valid: ', document.forms.signup.firtName.validity.valid);
+
+
+let names = Array.from(document.forms.signup.elements).forEach(elem => {
+  if (elem.id.validity) {
+    console.log('work');
+  } else {
+    console.log('noooooooooooooooooo');
+  }
+});
+
+console.log(names);
+
+
+
 const clearForm = (formName) => {
   formName.reset();
 }
 
 const isValidForm = () => {
-  if (firstNameInut.value !== '' && lastNameInput.value !== '' && emailInput.value !== '' && isValidConfirmPasswords()) {
+  if (firstNameInut.value !== '' && lastNameInput.value !== '' && emailInput.value !== '' && isValidConfirmPasswords() && nationalitySelect.value !== '' && birthDaySelect.value !== '' && birthMonthSelect.value !== '' && birthYearSelect.value !== '') {
     return true;
   } else return false;
 }
