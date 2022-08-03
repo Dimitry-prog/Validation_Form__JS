@@ -3,4 +3,4 @@
 * Without library
 
 
-* [Ссылка на страницу](https://dimitry-prog.github.io/test/)
+* [link on page](https://dimitry-prog.github.io/test/)
