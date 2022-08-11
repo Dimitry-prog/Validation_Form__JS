@@ -37,24 +37,6 @@ birthYearSelect.addEventListener('click', function () {
   errorMessage(birthYearSelect);
 });
 
-console.log('form: ', document.forms.signup);
-console.log('elem: ', document.forms.signup.elements);
-console.log('by name: ', document.forms.signup.firtName);
-console.log('firt name valid: ', document.forms.signup.firtName.validity.valid);
-
-console.log('by name nationality: ', document.forms.signup.nationality);
-console.log('nationality valid: ', document.forms.signup.firtName.validity.valid);
-
-let names = Array.from(document.forms.signup.elements).forEach(elem => {
-  if (elem.id.validity) {
-    console.log('work');
-  } else {
-    console.log('noooooooooooooooooo');
-  }
-});
-
-console.log(names);
-
 const clearForm = (formName) => {
   formName.reset();
 }
