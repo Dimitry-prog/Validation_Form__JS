@@ -21,8 +21,6 @@ const birthDaySelect = signUpForm.querySelector('.select__birthday');
 const birthMonthSelect = signUpForm.querySelector('.select__month');
 const birthYearSelect = signUpForm.querySelector('.select__year');
 
-
-
 nationalitySelect.addEventListener('click', function () {
   errorMessage(nationalitySelect);
 });
@@ -47,7 +45,6 @@ console.log('firt name valid: ', document.forms.signup.firtName.validity.valid);
 console.log('by name nationality: ', document.forms.signup.nationality);
 console.log('nationality valid: ', document.forms.signup.firtName.validity.valid);
 
-
 let names = Array.from(document.forms.signup.elements).forEach(elem => {
   if (elem.id.validity) {
     console.log('work');
@@ -57,8 +54,6 @@ let names = Array.from(document.forms.signup.elements).forEach(elem => {
 });
 
 console.log(names);
-
-
 
 const clearForm = (formName) => {
   formName.reset();
@@ -70,9 +65,6 @@ const isValidForm = () => {
   } else return false;
 }
 
-
-
-
 signUpForm.addEventListener('submit', function (event) {
   event.preventDefault();
   if (isValidForm()) {
@@ -83,10 +75,25 @@ signUpForm.addEventListener('submit', function (event) {
     vivusPiture.classList.add('sign-up__vivus--hidden');
   } else {
     submitButton.classList.add('button__shake');
+    const allInput = signUpForm.querySelectorAll('.sign-up__input');
+    allInput.forEach(item => {
+      if (!item.validity.valid) {
+        const errorElement = signUpForm.querySelector(`.${item.id}-error`);
+        item.closest('.fieldset').classList.add('fieldset--error');
+        errorElement.textContent = item.validationMessage;
+      }
+    });
+    const allSelect = signUpForm.querySelectorAll('.select ');
+    allSelect.forEach(item => {
+      if (!item.validity.valid) {
+        const errorElement = signUpForm.querySelector(`.${item.id}-error`);
+        item.closest('.fieldset').classList.add('fieldset--error');
+        errorElement.textContent = item.validationMessage;
+      }
+    });
   }
 
 });
-
 
 const togglePopUp = () => {
   popUp.classList.toggle('pop-up--opened');
@@ -100,7 +107,6 @@ popUp.addEventListener('click', function (event) {
   }
 })
 
-
 const isPasswordIncludesNumber = (formElement, inputSelector) => {
   let arr = formElement.querySelector(`.${inputSelector}`).value.split('');
   for (let item of arr) {
@@ -110,9 +116,6 @@ const isPasswordIncludesNumber = (formElement, inputSelector) => {
   }
   return false;
 }
-
-
-
 
 const isPasswordIncludesUpperLetter = (formElement, inputSelector) => {
   let res = formElement.querySelector(`.${inputSelector}`).value.toLowerCase();
@@ -167,7 +170,6 @@ const isValidConfirmPasswords = () => {
   return false;
 }
 
-
 passwordInput.addEventListener('input', function () {
   isValidPassword(signUpForm, 'input--password', 'pas-error');
 
@@ -177,7 +179,6 @@ confirmPasswordInput.addEventListener('input', function () {
   isValidPassword(signUpForm, 'input--confirm-password', 'conf-pas-error');
   isMatchPasswords(passwordInput, confirmPasswordInput, 'conf-pas-error');
 });
-
 
 const errorMessage = (inputElement) => {
   const errorElement = signUpForm.querySelector(`.${inputElement.id}-error`);
