@@ -1,6 +1,5 @@
 # Validation Form
 
-* Without library
+- Without library
 
-
-* [link on page](https://dimitry-prog.github.io/test/)
+- [link on page](https://dimitry-prog.github.io/Validation_Form__JS/)
